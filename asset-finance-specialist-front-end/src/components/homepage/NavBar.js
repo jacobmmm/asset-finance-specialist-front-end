@@ -63,12 +63,18 @@ function NavBar(props) {
 
       function handleLoginClick(){
         console.log("Login clicked")
-        // navigate('/login'); 
+        navigate('/login'); 
       }
+
+      function handleSignUpClick(){
+        console.log("Signup clicked")
+
+        navigate('/signup');
+        }
 
       function handleTitleClick(){
         console.log("Login clicked")
-        // navigate('/',{ state: { email: props.email } }); 
+        navigate('/',{ state: { email: props.email } }); 
       }
 
       function handlePlans(){
@@ -96,7 +102,7 @@ function NavBar(props) {
      return(<div style={navStyle}>
       <div onClick={handleTitleClick} style={titleStyle}>ASSET FINANCE SPECIALISTS</div>
 
-      <div onClick={handleTitleClick} style={linkStyle}>Signup</div>
+      <div onClick={handleSignUpClick} style={linkStyle}>Signup</div>
      
       <div onClick={handleLoginClick} style={linkStyle} >Login</div>
       

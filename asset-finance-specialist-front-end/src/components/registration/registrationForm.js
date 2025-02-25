@@ -6,14 +6,14 @@ import "../../css/LoginForm.css";
 function RegistrationForm() {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
-    const [dateOfBirth, setDateOfBirth] = useState('')
+    const [DOB, setDOB] = useState('')
     const [email, setEmail] = useState(''); 
     const [password, setPassword] = useState('');
     const [confPwd, setConfPwd] = useState('');
     const [address1, setAddress1] = useState('');
     const [address2, setAddress2] = useState('');
     const [suburb, setSuburb] = useState('');
-    const [postCode, setPostCode] = useState('');
+    const [postcode, setPostcode] = useState('');
     const [state, setState] = useState('');
     const [errors, setErrors] = useState({});
     let navigate = useNavigate();
@@ -21,60 +21,69 @@ function RegistrationForm() {
       event.preventDefault();
       // Add your login logic here
       setErrors({});
-
+      
+      console.log("RegistrationDetails submitted");
       
 
-    //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
-    //   if (!emailRegex.test(email)) {
-    //     setErrors(errors => ({ ...errors, email: "Please enter a valid email address." }));
-    //     return; // Stop the form submission if email is invalid
-    // }
+      if (!emailRegex.test(email)) {
+        setErrors(errors => ({ ...errors, email: "Please enter a valid email address." }));
+        return; // Stop the form submission if email is invalid
+    }
 
-    // // Checking if passwords match
-    // if (password !== confPwd) {
-    //     setErrors(errors => ({ ...errors, password: "Passwords do not match." }));
-    //     return; // Stop the form submission if passwords do not match
-    // }
+    // Checking if passwords match
+    if (password !== confPwd) {
+        setErrors(errors => ({ ...errors, password: "Passwords do not match." }));
+        return; // Stop the form submission if passwords do not match
+    }
 
     console.log("RegistrationDetails submitted");
 
 
-    //   try {
-    //     const response = await fetch('https://tsyo1dyxvi.execute-api.us-east-1.amazonaws.com', {
-    //       method: 'POST',
-    //       headers: {
-    //         'Content-Type': 'application/json'
-    //       },
-    //       body: JSON.stringify({
-    //         firstName,
-    //         lastName,
-    //         dateOfBirth,
-    //         email,
-    //         password,
-    //         height,
-    //         weight
-    //       })
-    //     });
+      try {
+        const response = await fetch('http://localhost:5000/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            firstName,
+            lastName,
+            DOB,
+            address1,
+            address2,
+            suburb,
+            email,
+            password,
+            state,
+            postcode
+          })
+        });
     
-    //     if (response.ok) {
-    //       const result = await response.json();
-    //       console.log('Success:', result);
-    //       // Handle actions after successful registration like redirecting to a login page or showing a success message
-    //     } else {
-    //       throw new Error('Failed to register');
-    //     }
-    //   } catch (error) {
-    //     console.error('Error:', error);
-    //   }  
+        if (response.ok) {
+          const result = await response.json();
+          console.log('Success:', result);
+          navigate('/login');
+          // Handle actions after successful registration like redirecting to a login page or showing a success message
+        } else {
+          throw new Error('Failed to register');
+          setErrors('Failed to register. Please try again.');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        setErrors('Failed to register. Please try again.');
+      }  
 
-      navigate('/')
+      
 
       
     };
   
     return (
       <div className="login-container">
+
+{/* {errors && <p style={{ color: 'red' }}>{String(errors)}</p>} */}
         
         <form onSubmit={handleRegistration}>
 
@@ -101,12 +110,12 @@ function RegistrationForm() {
           </div>
 
           <div className="input-group">
-            <label htmlFor="dateOfBirth">DOB</label>
+            <label htmlFor="DOB">DOB</label>
             <input
               type="date"
-              id="dateOfBirth"
-              value={dateOfBirth}
-              onChange={(e) => setDateOfBirth(e.target.value)}
+              id="DOB"
+              value={DOB}
+              onChange={(e) => setDOB(e.target.value)}
               required
             />
           </div>
@@ -180,12 +189,12 @@ function RegistrationForm() {
           </div> 
 
           <div className="input-group">
-            <label htmlFor="postCode">Post Code</label>
+            <label htmlFor="postcode">Post Code</label>
             <input
               type="text"
-              id="postCode"
-              value={postCode}
-              onChange={(e) => setPostCode(e.target.value)}
+              id="postcode"
+              value={postcode}
+              onChange={(e) => setPostcode(e.target.value)}
               required
             />
           </div> 

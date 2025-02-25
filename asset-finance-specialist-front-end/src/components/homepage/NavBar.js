@@ -114,14 +114,10 @@ function NavBar(props) {
     
   return (
     <div style={navStyle}>
-      <div onClick={handleTitleClick}  style={titleStyle}>POCKET TRAINER</div>
-     
-      <div onClick={handlePlans} style={linkStyle} >Available Plans</div>
+      <div onClick={handleTitleClick}  style={titleStyle}>ASSET FINANCE SPECIALISTS</div>
 
-      <div   style={linkStyle} >My Plans</div>
 
-      <div  style={linkStyle} >Workout Logs</div>
-
+      
       <div onClick={toggleDropdown}  style={linkStyle} >{props.email}</div>
 
       {isOpen && (

@@ -17,11 +17,9 @@ export default function Home() {
     <div>
     <NavBar email={email} />
     <MainImage />
-    <WelcomeMessage />
+    <WelcomeMessage email={email} />
     
-    {/* <MainImage />
-    <HomeParagraph />
-    <HomeFeatures /> */}
+  
     </div>
   )
 

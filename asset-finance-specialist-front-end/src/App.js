@@ -5,6 +5,7 @@ import Home from './pages/home';
 import {BrowserRouter as Router,Route,Routes} from 'react-router-dom'
 import Login from './pages/login';
 import Registration from './pages/registration';
+import FinanceRegistration from './pages/financeRegistration';
 // import Registration from './pages/registration';
 // import MusclePlan from './pages/muscleplan';
 // import PlanExcercise from './pages/planExcercise';
@@ -32,6 +33,7 @@ function App() {
       <Route index element={<Home />} /> 
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Registration />} />
+      <Route path="/financeRegistration" element={<FinanceRegistration />} />
       {/*<Route path="/muscleplan" element={<MusclePlan/>} />
       <Route path="/muscleplan/excercises" element={<PlanExcercise />} /> */}
       

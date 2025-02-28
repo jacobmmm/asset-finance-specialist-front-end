@@ -166,7 +166,7 @@ if(!financeData){
     {/* <br></br> */}
     
     {userData ? (
-        <FinanceTable financeData={financeData} userData={userData} />
+        <FinanceTable financeData={financeData} userData={userData} userEmail={userEmail} />
       ) : (
         <p>Loading user data...</p>
       )}

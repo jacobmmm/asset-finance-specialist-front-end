@@ -35,7 +35,7 @@ function FinanceRegistrationForm(props) {
             if (response.ok) {
               const result = await response.json();
               console.log('Success:', result);
-              navigate('/login');
+              navigate('/',{ state: { email: email } });
               // Handle actions after successful registration like redirecting to a login page or showing a success message
             } else {
               throw new Error('Failed to register');

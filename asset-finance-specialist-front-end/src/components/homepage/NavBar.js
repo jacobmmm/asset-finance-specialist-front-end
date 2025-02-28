@@ -47,7 +47,9 @@ function NavBar(props) {
         width: '200px', 
         padding: '8px', 
         boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.2)',
-        zIndex: 1000 };
+        zIndex: 1000,
+        color: 'white',
+       };
 
       const logOutText = {
 
@@ -121,13 +123,15 @@ function NavBar(props) {
       <div onClick={toggleDropdown}  style={linkStyle} >{props.email}</div>
 
       {isOpen && (
-        <div style={logOutStyle}>
-          <a onClick={handleLogout} style={logOutText}>Logout</a>
-        </div>
-      )}
+  <div style={logOutStyle}>
+    <a onClick={handleLogout} style={logOutText}>Logout</a>
+  </div>
+)}
     
       
     </div> 
+
+
 
 
   )

@@ -86,6 +86,8 @@ function FinanceTable({ financeData, userData, userEmail }) {
   
       const result = await response.json();
       console.log("Deletion result:", result);
+
+      setTableData(prevData => prevData.filter(record => !record.isSelected));
   
       // Optionally update your state or refresh the table after deletion
     } catch (error) {
@@ -135,7 +137,7 @@ function FinanceTable({ financeData, userData, userEmail }) {
     };
   
     const values = [updatedValue];
-    handleUpdateRecord(updatedRecord, attributes, values);
+    handleUpdateRecord(updatedRecord, attributes, values, index);
     // const updatedValue = tableData[index][`draft${capitalize(field)}`];
     // const updatedRecord = { 
     //   ...tableData[index],
@@ -173,10 +175,12 @@ function FinanceTable({ financeData, userData, userEmail }) {
     });
   };
 
-  const handleUpdateRecord = async (record, attributes, values) => {
+  const handleUpdateRecord = async (record, attributes, values, index) => {
     // Build payload
 
     console.log("Record in handleUpdateRecord:",record)
+    console.log("Attributes in handleUpdateRecord:",attributes)
+    console.log("Values in handleUpdateRecord:",values)
 
 
     const payload = {
@@ -208,14 +212,17 @@ function FinanceTable({ financeData, userData, userEmail }) {
 
     const result = await response.json();
     console.log("Updation result:", result);
-      // .then(res => res.json())
-      // .then(data => {
-      //   console.log('Update result:', data);
-      //   // Optionally refresh or set state to reflect new data
-      // })
-      // .catch(error => {
-      //   console.error('Error updating record:', error);
-      // });
+     
+    record[attributes[0]] = values[0];
+    console.log("Record after updation:",record)
+
+    setTableData(prevData => {
+      const newData = [...prevData];
+      // Replace the row at the given index with the updated record.
+      // Optionally, you can update isEditing to false or make other changes.
+      newData[index] = { ...record };
+      return newData;
+    });
   }catch (error) {
     console.error("Error in updating:", error); 
 

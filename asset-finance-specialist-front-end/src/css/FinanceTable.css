@@ -33,4 +33,22 @@
   .top-right-buttons button {
     margin-left: 10px;
   }
+
+  .input-with-icons {
+    position: relative;
+    display: inline-block; /* or block */
+  }
+  
+  .icons-container {
+    position: absolute;
+    top: 40px; /* or wherever you want them to appear */
+    left: 0;
+    display: flex;
+    gap: 8px; /* space between icons */
+  }
+  
+  .icons-container svg {
+    cursor: pointer;
+  }
+  
   

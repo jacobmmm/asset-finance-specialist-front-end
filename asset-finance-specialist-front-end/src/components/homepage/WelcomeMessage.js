@@ -100,7 +100,7 @@ const WelcomeMessage = (props) => {
      fetchApplication();
      }
 
-  }, []);
+  }, [userEmail]);
 
    useEffect(() => {
     console.log("Finance data after update: ",financeData)

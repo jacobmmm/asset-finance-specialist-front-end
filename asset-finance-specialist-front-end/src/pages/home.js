@@ -1,6 +1,7 @@
 import NavBar from '../components/homepage/NavBar';
 import WelcomeMessage from '../components/homepage/WelcomeMessage';
 import MainImage from '../components/homepage/MainImage';
+import Footer from '../components/homepage/Footer';
 
 // import HomeParagraph from '../components/homepage/HomeParagraph';
 // import HomeFeatures from '../components/homepage/HomeFeatures';
@@ -18,7 +19,7 @@ export default function Home() {
     <NavBar email={email} />
     <MainImage />
     <WelcomeMessage email={email} />
-    
+    <Footer />
   
     </div>
   )

@@ -11,13 +11,6 @@ function MainImage() {
     return (
       <div className="main-image">
       <img src={HomePageImage} alt="GymWallpaper" />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
       </div>
     )
   }

@@ -1,6 +1,7 @@
 .finance-table-container {
   position: relative;
   margin: 20px;
+  margin-bottom: 80px; /* Add extra bottom margin to prevent footer overlap */
 }
 
 .finance-table {
@@ -31,7 +32,13 @@
   }
   
   .top-right-buttons button {
+    background-color: #007bff;
     margin-left: 10px;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
   }
 
   .input-with-icons {
@@ -49,6 +56,28 @@
   
   .icons-container svg {
     cursor: pointer;
+  }
+
+  .bottom-buttons {
+    margin-top: 20px;
+    margin-bottom: 100px;
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  .bottom-buttons button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .bottom-buttons button:hover {
+    background-color: #0056b3;
   }
   
   

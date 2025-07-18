@@ -266,9 +266,6 @@ function FinanceTable({ financeData, userData, userEmail }) {
 
 
         <div className="top-right-buttons">
-          <button onClick={addRecord}>
-            Add Application
-          </button>
           {anyRowSelected && (    
           <button onClick={handleDelete}>
             Delete
@@ -394,6 +391,12 @@ function FinanceTable({ financeData, userData, userEmail }) {
         ))}
       </tbody>
     </table>
+    
+    <div className="bottom-buttons">
+      <button onClick={addRecord}>
+        Add Application
+      </button>
+    </div>
     </div>
   );
 }

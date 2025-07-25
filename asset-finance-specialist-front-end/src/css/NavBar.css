@@ -5,16 +5,16 @@
     align-items: center;
     position: relative;
     padding: 10px 20px;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #7FB069;
     margin-bottom: 20px;
-    background-color: black;
+    background-color: #7FB069;
 }
 
 /* Title styling */
 .nav-title {
-    font-weight: bold;
+    font-weight: 500;
     font-size: 24px;
-    color: white;
+    color: #000;
     cursor: pointer;
     padding-right: 420px; /* Adjust spacing if needed */
 }
@@ -22,8 +22,9 @@
 /* Link styling */
 .nav-link {
     text-decoration: none;
-    color: white;
+    color: #000;
     font-size: 18px;
+    font-weight: 400;
     cursor: pointer;
 }
 
@@ -32,7 +33,7 @@
     position: absolute;
     top: 100%;
     left: 1300px; /* Adjust this for responsiveness */
-    background-color: black;
+    background-color: #7FB069;
     border: 1px solid #ccc;
     width: 200px;
     padding: 8px;
@@ -42,5 +43,6 @@
 
 /* Logout text */
 .logout-text {
-    color: white;
+    color: #000;
+    font-weight: 400;
 }

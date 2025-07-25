@@ -17,8 +17,10 @@
   
   /* Make the header a bit distinct */
   .finance-table th {
-    background-color: #f2f2f2;
+    background-color: #7FB069;
     text-align: left;
+    color: #000;
+    font-weight: 500;
   }
   
   .checkbox-cell {

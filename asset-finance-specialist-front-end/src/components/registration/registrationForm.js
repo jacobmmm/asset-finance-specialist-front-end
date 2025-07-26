@@ -1,7 +1,8 @@
 
 import React, { useState } from 'react';
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom';
 import "../../css/LoginForm.css";
+import LoadingSpinner from '../LoadingSpinner';
 
 function RegistrationForm() {
     const [firstName, setFirstName] = useState('');
@@ -16,11 +17,13 @@ function RegistrationForm() {
     const [postcode, setPostcode] = useState('');
     const [state, setState] = useState('');
     const [errors, setErrors] = useState({});
+    const [isLoading, setIsLoading] = useState(false);
     let navigate = useNavigate();
     const handleRegistration = async (event) => {
       event.preventDefault();
       // Add your login logic here
       setErrors({});
+      setIsLoading(true);
       
       console.log("RegistrationDetails submitted");
       
@@ -29,12 +32,14 @@ function RegistrationForm() {
 
       if (!emailRegex.test(email)) {
         setErrors(errors => ({ ...errors, email: "Please enter a valid email address." }));
+        setIsLoading(false);
         return; // Stop the form submission if email is invalid
     }
 
     // Checking if passwords match
     if (password !== confPwd) {
         setErrors(errors => ({ ...errors, password: "Passwords do not match." }));
+        setIsLoading(false);
         return; // Stop the form submission if passwords do not match
     }
 
@@ -73,6 +78,8 @@ function RegistrationForm() {
       } catch (error) {
         console.error('Error:', error);
         setErrors('Failed to register. Please try again.');
+      } finally {
+        setIsLoading(false);
       }  
 
       
@@ -81,6 +88,8 @@ function RegistrationForm() {
     };
   
     return (
+      <>
+      {isLoading && <LoadingSpinner />}
       <div className="login-container">
 
 {/* {errors && <p style={{ color: 'red' }}>{String(errors)}</p>} */}
@@ -128,6 +137,7 @@ function RegistrationForm() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              disabled={isLoading}
             />
           </div>
           <div className="input-group">
@@ -138,6 +148,7 @@ function RegistrationForm() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              disabled={isLoading}
             />
           </div>
 
@@ -149,6 +160,7 @@ function RegistrationForm() {
               value={confPwd}
               onChange={(e) => setConfPwd(e.target.value)}
               required
+              disabled={isLoading}
             />
 
             {errors.password && <div style={{ color: "red" }}>{errors.password}</div>}
@@ -210,10 +222,13 @@ function RegistrationForm() {
             />
           </div> 
 
-          <button type="submit">Sign Up</button>
+          <button type="submit" disabled={isLoading}>
+            {isLoading ? 'Creating Account...' : 'Sign Up'}
+          </button>
         </form>
         
       </div>
+      </>
     );
   }
   

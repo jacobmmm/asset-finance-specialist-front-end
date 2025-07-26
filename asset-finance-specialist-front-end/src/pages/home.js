@@ -1,6 +1,7 @@
 import NavBar from '../components/homepage/NavBar';
 import WelcomeMessage from '../components/homepage/WelcomeMessage';
 import Footer from '../components/homepage/Footer';
+import '../css/Home.css';
 
 // import HomeParagraph from '../components/homepage/HomeParagraph';
 // import HomeFeatures from '../components/homepage/HomeFeatures';
@@ -14,9 +15,11 @@ export default function Home() {
   console.log("Email in homepage: ",email)
 
   return(
-    <div>
+    <div className="home-container">
     <NavBar email={email} />
-    <WelcomeMessage email={email} />
+    <div className="main-content">
+      <WelcomeMessage email={email} />
+    </div>
     <Footer />
   
     </div>

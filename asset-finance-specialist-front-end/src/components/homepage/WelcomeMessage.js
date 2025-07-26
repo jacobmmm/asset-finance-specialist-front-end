@@ -27,7 +27,7 @@ const WelcomeMessage = (props) => {
           userEmail,
         }).toString();
       
-        const response = await fetch(`http://localhost:5000/getFinanceApplication?${queryParams}`, {
+        const response = await fetch(`https://asset-finance-specialist-backend.onrender.com/getFinanceApplication?${queryParams}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
@@ -59,7 +59,7 @@ const WelcomeMessage = (props) => {
           userEmail,
         }).toString();
       
-        const response = await fetch(`http://localhost:5000/getUser?${queryParams}`, {
+        const response = await fetch(`https://asset-finance-specialist-backend.onrender.com/getUser?${queryParams}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'

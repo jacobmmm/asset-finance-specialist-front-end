@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import "../../css/LoginForm.css";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import LoadingSpinner from '../LoadingSpinner';
 
 function LoginForm() { 
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState({});
+    const [isLoading, setIsLoading] = useState(false);
     let navigate = useNavigate();
 
     const handleLogin = async (event) => {
         event.preventDefault();
         
         setErrors({});
+        setIsLoading(true);
     
         console.log("form submitted");
 
@@ -47,10 +50,14 @@ function LoginForm() {
         } catch (error) {
           setErrors(errors => ({ ...errors, message: "Invalid Credentials" }));
           console.error('Error:', error);
+        } finally {
+          setIsLoading(false);
         }  
     }    
 
     return (
+        <>
+        {isLoading && <LoadingSpinner />}
         <div className="login-container">
           
           <form onSubmit={handleLogin}>
@@ -62,6 +69,7 @@ function LoginForm() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                disabled={isLoading}
               />
             </div>
             <div className="input-group">
@@ -72,14 +80,18 @@ function LoginForm() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                disabled={isLoading}
               />
     
               {errors.message && <div style={{ color: "red" }}>{errors.message}</div>}
     
             </div>
-            <button type="submit">Login</button>
+            <button type="submit" disabled={isLoading}>
+              {isLoading ? 'Signing in...' : 'Login'}
+            </button>
           </form>
           </div>
+        </>
     );
 
 

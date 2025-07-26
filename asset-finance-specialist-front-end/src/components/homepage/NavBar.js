@@ -16,22 +16,23 @@ function NavBar(props) {
         alignItems: 'center',
         position: 'relative',
         padding: '10px 20px',
-        borderBottom: '2px solid #7FB069',
+        borderBottom: '2px solid #1e3a8a',
         marginBottom: '20px',
-        backgroundColor: '#7FB069'
+        backgroundColor: 'rgba(30, 58, 138, 0.95)',
+        backdropFilter: 'blur(10px)'
       };
     
       const titleStyle = {
         fontWeight: '500',
         fontSize: '24px',
-        color: '#000',
+        color: '#ffffff',
         cursor: 'pointer',
         paddingRight: '420px'
       };
     
       const linkStyle = {
         textDecoration: 'none',
-        color: '#000',
+        color: '#ffffff',
         fontSize: '18px',
         fontWeight: '400',
         cursor: 'pointer'
@@ -43,18 +44,19 @@ function NavBar(props) {
         position: 'absolute', 
         top: '100%',
         left: 1300,
-        backgroundColor: '#7FB069', 
-        border: '1px solid #ccc', 
+        backgroundColor: 'rgba(30, 58, 138, 0.95)', 
+        backdropFilter: 'blur(10px)',
+        border: '1px solid #1e3a8a', 
         width: '200px', 
         padding: '8px', 
         boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.2)',
         zIndex: 1000,
-        color: '#000',
+        color: '#ffffff',
        };
 
       const logOutText = {
 
-        color: '#000',
+        color: '#ffffff',
         fontWeight: '400'
       };
 

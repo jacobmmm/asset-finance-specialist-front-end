@@ -1,6 +1,5 @@
 import NavBar from '../components/homepage/NavBar';
 import WelcomeMessage from '../components/homepage/WelcomeMessage';
-import MainImage from '../components/homepage/MainImage';
 import Footer from '../components/homepage/Footer';
 
 // import HomeParagraph from '../components/homepage/HomeParagraph';
@@ -17,7 +16,6 @@ export default function Home() {
   return(
     <div>
     <NavBar email={email} />
-    <MainImage />
     <WelcomeMessage email={email} />
     <Footer />
   

@@ -29,6 +29,44 @@
     color: #60a5fa;
 }
 
+/* Welcome message buttons */
+.welcome-button {
+    background-color: rgba(30, 58, 138, 0.9);
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 5px 10px;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-button:hover {
+    background-color: rgba(30, 58, 138, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.welcome-button.primary {
+    background-color: rgba(30, 58, 138, 0.9);
+}
+
+.welcome-button.secondary {
+    background-color: rgba(59, 130, 246, 0.9);
+}
+
+.welcome-button.secondary:hover {
+    background-color: rgba(59, 130, 246, 1);
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
     .message-container {

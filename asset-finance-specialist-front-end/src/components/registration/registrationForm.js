@@ -72,8 +72,9 @@ function RegistrationForm() {
           navigate('/login');
           // Handle actions after successful registration like redirecting to a login page or showing a success message
         } else {
-          throw new Error('Failed to register');
           setErrors('Failed to register. Please try again.');
+          throw new Error('Failed to register');
+          
         }
       } catch (error) {
         console.error('Error:', error);

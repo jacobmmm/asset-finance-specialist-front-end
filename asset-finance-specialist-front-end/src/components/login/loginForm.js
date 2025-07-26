@@ -23,7 +23,7 @@ function LoginForm() {
         console.log('Password:', password);
     
         try {
-          let username = email
+          
           const response = await fetch('https://asset-finance-specialist-backend.onrender.com/login', {
             method: 'POST',
             headers: {

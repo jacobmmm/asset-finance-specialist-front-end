@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import {useNavigate} from 'react-router-dom'
+import '../../css/NavBar.css'
 
 
 
@@ -54,11 +55,13 @@ function NavBar(props) {
         color: '#ffffff',
        };
 
-      const logOutText = {
+      // const logOutText = {
 
-        color: '#ffffff',
-        fontWeight: '400'
-      };
+      //   color: '#ffffff',
+      //   fontWeight: '400'
+      // };
+
+
 
       
 
@@ -83,10 +86,10 @@ function NavBar(props) {
         navigate('/',{ state: { email: props.email } }); 
       }
 
-      function handlePlans(){
-        console.log("Available Plans clicked")
-        // navigate('/muscleplan',{ state: { email: props.email } }); 
-      }
+      // function handlePlans(){
+      //   console.log("Available Plans clicked")
+      //   // navigate('/muscleplan',{ state: { email: props.email } }); 
+      // }
 
       function toggleDropdown(){
         console.log("isOpen is, ",isOpen)
@@ -128,7 +131,12 @@ function NavBar(props) {
 
       {isOpen && (
   <div style={logOutStyle}>
-    <a onClick={handleLogout} style={logOutText}>Logout</a>
+    <button 
+      onClick={handleLogout} 
+      className="logout-button"
+    >
+      Logout
+    </button>
   </div>
 )}
     

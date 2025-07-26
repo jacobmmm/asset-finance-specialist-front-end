@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "../../css/WelcomeMessage.css";
-import "../../css/NavBar.css" // Import external CSS file
 import {useNavigate} from 'react-router-dom'
 import FinanceTable from "./FinanceTable";
 
@@ -137,9 +136,15 @@ const WelcomeMessage = (props) => {
     return (
       <div className="message-container">
         <p>Welcome To Asset Finance Specialists</p>
-        <p>
-          Please <a href="#" onClick={handleLoginClick} className="link">login</a> or <a href="#" onClick={handleSignUpClick} className="link">signup</a> to continue
-        </p>
+        <p>Please continue to get started</p>
+        <div className="button-container">
+          <button onClick={handleLoginClick} className="welcome-button primary">
+            Login
+          </button>
+          <button onClick={handleSignUpClick} className="welcome-button secondary">
+            Sign Up
+          </button>
+        </div>
       </div>
     )
   
@@ -150,9 +155,12 @@ if(!financeData){
     return (
       <div className="message-container">
         <p>Welcome {props.email}!</p>
-        <p>
-        <a href="#" onClick={createFinanceApplication}  className="link">Click here</a> to create your first finance application
-        </p>
+        <p>Ready to get started with your finance application?</p>
+        <div className="button-container">
+          <button onClick={createFinanceApplication} className="welcome-button primary">
+            Create Finance Application
+          </button>
+        </div>
       </div>
     )
  }

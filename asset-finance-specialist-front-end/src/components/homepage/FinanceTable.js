@@ -1,4 +1,4 @@
-import React, { useState, useEffect, use } from 'react';
+import  { useState, useEffect,  } from 'react';
 import '../../css/FinanceTable.css';
 import {useNavigate} from 'react-router-dom'
 import { FaCheck, FaTimes } from 'react-icons/fa';
@@ -236,27 +236,27 @@ function FinanceTable({ financeData, userData, userEmail }) {
 
 
   // Handle changes for editable fields (income, assets, liabilities)
-  const handleInputChange = (e, index, field) => {
-    const { value } = e.target;
-    setTableData(prevData =>
-      prevData.map((item, i) =>
-        i === index
-          ? { ...item, [field]: value }
-          : item
-      )
-    );
-  };
+  // const handleInputChange = (e, index, field) => {
+  //   const { value } = e.target;
+  //   setTableData(prevData =>
+  //     prevData.map((item, i) =>
+  //       i === index
+  //         ? { ...item, [field]: value }
+  //         : item
+  //     )
+  //   );
+  // };
 
-  // Toggle row selection for 'Add Application' or 'Delete'
-  const handleSelectionToggle = (index) => {
-    setTableData(prevData =>
-      prevData.map((item, i) =>
-        i === index
-          ? { ...item, isSelected: !item.isSelected }
-          : item
-      )
-    );
-  };
+  // // Toggle row selection for 'Add Application' or 'Delete'
+  // const handleSelectionToggle = (index) => {
+  //   setTableData(prevData =>
+  //     prevData.map((item, i) =>
+  //       i === index
+  //         ? { ...item, isSelected: !item.isSelected }
+  //         : item
+  //     )
+  //   );
+  // };
 
   // Check if any rows are selected
   const anyRowSelected = tableData.some(item => item.isSelected);

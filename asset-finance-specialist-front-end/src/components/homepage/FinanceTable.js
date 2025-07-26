@@ -72,7 +72,7 @@ function FinanceTable({ financeData, userData, userEmail }) {
     console.log("Payload for deletion:", payload);
   
     try {
-      const response = await fetch('http://localhost:5000/deleteFinanceApplication', {
+      const response = await fetch('https://asset-finance-specialist-backend.onrender.com/deleteFinanceApplication', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -200,7 +200,7 @@ function FinanceTable({ financeData, userData, userEmail }) {
 
     console.log("Payload for update:", payload);
     try {
-    const response = await fetch('http://localhost:5000/updateFinanceApplication', {
+    const response = await fetch('https://asset-finance-specialist-backend.onrender.com/updateFinanceApplication', {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),

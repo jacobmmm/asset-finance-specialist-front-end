@@ -39,7 +39,7 @@ const WelcomeMessage = (props) => {
 
         setFinanceData(data.financials);
         //financeData.push(data.financials);
-        console.log("Finance data after fetching: ",financeData)
+        console.log("Finance data after fetching: ", data.financials)
       
         // Handle the response as needed...
       } catch (error) {
@@ -98,7 +98,8 @@ const WelcomeMessage = (props) => {
      fetchUserDetails();
      fetchApplication();
            } 
-}, [userEmail]);
+
+  }, [userEmail]);
 
   
 

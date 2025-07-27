@@ -97,9 +97,10 @@ const WelcomeMessage = (props) => {
      if(userEmail){
      fetchUserDetails();
      fetchApplication();
-     }
+           } 
+}, [userEmail]);
 
-  }, []);
+  
 
    useEffect(() => {
     console.log("Finance data after update: ",financeData)

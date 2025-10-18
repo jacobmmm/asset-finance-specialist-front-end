@@ -48,8 +48,12 @@ function LoginForm() {
             throw new Error('Login Failed');
           }
         } catch (error) {
-          setErrors(errors => ({ ...errors, message: "Invalid Credentials" }));
-          console.error('Error:', error);
+          console.error('Fetch Error Details:', error);
+          if (error.name === 'TypeError' && error.message === 'Failed to fetch') {
+            setErrors(errors => ({ ...errors, message: "Cannot connect to server. Please check if the backend is running." }));
+          } else {
+            setErrors(errors => ({ ...errors, message: "Invalid Credentials" }));
+          }
         } finally {
           setIsLoading(false);
         }  
